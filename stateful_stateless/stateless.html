@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stateless</title>
+</head>
+<body>
+    <h1>Stateless web app</h1>
+    <!-- Calls one end point, connects, read and closes-->
+    <button id = 'btnRead'>
+        Stateless Read
+    </button>
+    <script>
+    const btnRead = document.getElementById("btnRead");
+    btnRead.addEventListener("click", e=>{
+        fetch("http://localhost:2000/stateless/read", {"method": "POST"})
+        .then(r=>r.json())
+        .then(r=>alert(r))
+        .catch(e=>alert(`ERROR ${e}`))
+    })
+    </script>
+</body>
+</html>
